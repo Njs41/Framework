@@ -309,6 +309,12 @@ public class RunsafeServer extends BukkitServer implements IServer
 		return InjectionPlugin.getGlobalComponent(IPlayerExtensions.class).getUniqueId(playerName);
 	}
 
+	@Nullable
+	public String getPlayerUsername(UUID playerId)
+	{
+		return InjectionPlugin.getGlobalComponent(IPlayerExtensions.class).getPlayerName(playerId);
+	}
+
 	@Override
 	public void addRecipe(ShapedRecipe recipe)
 	{
