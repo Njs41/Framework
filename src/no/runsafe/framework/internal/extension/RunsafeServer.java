@@ -71,7 +71,7 @@ public class RunsafeServer extends BukkitServer implements IServer
 		if (rawPlayer != null && rawPlayer.isOnline())
 			return ObjectWrapper.convert((OfflinePlayer) rawPlayer);
 
-		return ObjectWrapper.convert(server.getOfflinePlayer(playerUUID));
+		return getOfflinePlayer(playerUUID, getPlayerUsername(playerUUID));
 	}
 
 	@Override
