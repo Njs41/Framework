@@ -129,6 +129,7 @@ public class RunsafePlayer extends BukkitPlayer implements IPlayer
 		data.put("game.experience", String.format("%.1f", getXP()));
 		data.put("game.level", String.format("%d", getLevel()));
 		data.put("game.op", isOP() ? "true" : "false");
+		data.put("game.uniqueId", getUniqueId().toString());
 		return data;
 	}
 
