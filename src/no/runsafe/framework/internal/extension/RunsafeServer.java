@@ -1,6 +1,7 @@
 package no.runsafe.framework.internal.extension;
 
 import com.google.common.collect.Lists;
+import com.mojang.authlib.GameProfile;
 import no.runsafe.framework.api.IScheduler;
 import no.runsafe.framework.api.IServer;
 import no.runsafe.framework.api.hook.IPlayerExtensions;
@@ -15,6 +16,7 @@ import no.runsafe.framework.timer.Scheduler;
 import org.bukkit.BanList;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
+import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.Plugin;
@@ -305,5 +307,20 @@ public class RunsafeServer extends BukkitServer implements IServer
 	public void addRecipe(ShapedRecipe recipe)
 	{
 		server.addRecipe(recipe);
+	}
+
+	/**
+	 * Gets a player using their ID and username.
+	 *
+	 * @param playerId Player's unique ID.
+	 * @param playerName Player's username.
+	 *                   Does not have to be the player's current username.
+	 * @return An IPlayer.
+	 *         Null if Id is null or playerName is null or empty.
+	 */
+	@Nullable
+	private IPlayer getOfflinePlayer(@Nonnull UUID playerId, @Nonnull String playerName)
+	{
+		return new RunsafePlayer(((CraftServer) server).getOfflinePlayer(new GameProfile(playerId, playerName)));
 	}
 }
