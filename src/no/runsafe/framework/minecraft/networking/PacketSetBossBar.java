@@ -1,7 +1,7 @@
 package no.runsafe.framework.minecraft.networking;
 
-import net.minecraft.server.v1_8_R3.DataWatcher;
-import net.minecraft.server.v1_8_R3.PacketPlayOutSpawnEntityLiving;
+import net.minecraft.server.v1_11_R1.DataWatcher;
+import net.minecraft.server.v1_11_R1.PacketPlayOutSpawnEntityLiving;
 
 import java.lang.reflect.Field;
 
